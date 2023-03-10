@@ -1,0 +1,52 @@
+<h1>Template Driven Form</h1>
+<div class="login-form">
+  <form #registerForm="ngForm" (ngSubmit)="submitForm(registerForm)">
+    <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required email #mail="ngModel"
+      class="input"><br>
+    <div>
+      <small *ngIf="mail.invalid && mail.touched">Email Field is Required</small>
+      <span *ngIf="email">You Entered{{email}}</span>
+    </div><br>
+    <input type="text" placeholder="name" name="text" [(ngModel)]="name" required #fname="ngModel" class="input"><br>
+    <div>
+      <small *ngIf="fname.invalid && fname.touched">First Name Field is Required</small>
+      <span *ngIf="name">You Entered{{name}}</span>
+    </div><br>
+    <input type="number" placeholder="phone number" name="number" [(ngModel)]="number" required #pNumber="ngModel"
+      class="input"><br>   
+    <div>
+      <small *ngIf="pNumber.invalid && pNumber.touched">Phone Number Field is Required</small>
+      <span *ngIf="number">You Entered{{number}}</span>
+    </div><br>
+    <input type="password" placeholder="password" name="password" [(ngModel)]="password" required #pwd="ngModel"
+      class="input"><br>
+    <div>
+      <small *ngIf="pwd.invalid && pwd.touched">Password Field is Required</small>
+      <span *ngIf="password">You Entered{{password}}</span>
+    </div><br>
+    <br>
+    <label>Country</label>
+    <select name="country" [ngModel]="defaultCountry">
+      <option value="India">India</option>
+      <option value="Australia">Australia</option>
+      <option value="Canada">Canada</option>
+      <option value="FinLand">FinLand</option>
+    </select>
+    <br>
+    <label>Gender : </label>
+    <span *ngFor="let gen of gender">
+      <input type="radio" value="{{gen.value}}" name="gender" [ngModel]="defaultName">
+      <label for="Male">{{gen.value}}</label>
+    </span>
+    <!-- <label for="Female">Female</label>
+    <input type="radio" id="Female" value="Female" name="gender" ngModel>
+    <label for="Others">Others</label>
+    <input type="radio" id="Others" value="Others" name="gender" ngModel> -->
+    <br><br>
+    <button type="button" (click)="setValue()">Reset</button>
+    <button type="submit" class="btn btn sucesses" >Submit</button>  
+    <!-- [disabled]="!registerForm.valid" -->
+   
+  </form>
+</div>
+

@@ -1,0 +1,25 @@
+.login-form{
+text-align: center;
+ background-color: rgb(168, 172, 175);
+ padding-top: 5%;
+ padding-bottom: 3%;
+ width: 30%;
+ position: absolute;
+ left: 35%;
+ border-radius: 5px;
+}
+
+h1{
+    text-align: center;
+    color: blue;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+input.ng-valid{
+    border: 1px solid green;
+}
+small{
+    color: red;
+}
